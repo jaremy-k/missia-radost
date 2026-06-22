@@ -5,3 +5,5 @@ out
 *.log
 .env*
 !.env.example
+site-preview.jpg
+куклы/
