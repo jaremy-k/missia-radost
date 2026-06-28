@@ -55,6 +55,8 @@ const programs = [
   },
 ];
 
+const DOLL_CACHE_VERSION = "20260628233800";
+
 const dollCards = [
   {
     title: "Белый мишка",
@@ -351,7 +353,7 @@ export default function Home() {
               <article className="doll-card" key={card.title}>
                 <div className="doll-image-shell">
                   <Image
-                    src={card.image}
+                    src={`${card.image}?v=${DOLL_CACHE_VERSION}`}
                     alt={`Кукла ${card.title}`}
                     fill
                     unoptimized
