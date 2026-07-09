@@ -162,6 +162,7 @@ const dollCards = [
 const clientGalleryPhotos = [
   "/clients/05.jpg",
   "/clients/10.jpg",
+  "/clients/03.jpg",
   "/clients/01.jpg",
   "/clients/08.jpg",
   "/clients/09.jpg",
@@ -169,7 +170,6 @@ const clientGalleryPhotos = [
   "/clients/07.jpg",
   "/clients/04.jpg",
   "/clients/11.jpg",
-  "/clients/03.jpg",
   "/clients/06.jpg",
 ];
 
