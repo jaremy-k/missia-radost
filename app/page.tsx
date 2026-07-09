@@ -23,6 +23,7 @@ const programs = [
     characters: "1 персонаж",
     price: "от 3 000 ₽",
     color: "pink",
+    image: "/programs/express.jpg",
     items: [
       "Программа: 3 песни на ваш выбор",
       "Фотосессия",
@@ -35,6 +36,7 @@ const programs = [
     characters: "2–3 персонажа",
     price: "от 7 000 ₽",
     color: "yellow",
+    image: "/programs/vau.jpg",
     items: [
       "Программа: 3–5 песен на ваш выбор",
       "Фотосессия",
@@ -47,6 +49,7 @@ const programs = [
     characters: "3–5 персонажей",
     price: "от 15 000 ₽",
     color: "violet",
+    image: "/programs/fellini.jpg",
     items: [
       "Программа: 3–5 песен на ваш выбор",
       "Фотосессия и рилс с рилсмейкером",
@@ -55,7 +58,7 @@ const programs = [
   },
 ];
 
-const DOLL_CACHE_VERSION = "20260628233800";
+const DOLL_CACHE_VERSION = "20260709195400";
 
 const dollCards = [
   {
@@ -77,14 +80,6 @@ const dollCards = [
     ],
     description:
       "Артистичный образ для музыкального поздравления: любимые хиты, танец и зажигательное появление на празднике.",
-  },
-  {
-    title: "Бурый мишка",
-    image: "/catalog/dolls/classic-bear.png",
-    price: "от 2 000 ₽",
-    features: ["Рост: 2,60 м", "Музыкальное сопровождение", "Весёлые танцы"],
-    description:
-      "Отличный способ поднять настроение. Бурый мишка привлекает внимание и добавляет празднику тёплых эмоций.",
   },
   {
     title: "Панда",
@@ -154,9 +149,29 @@ const dollCards = [
     description:
       "Яркий розовый мишка — хит детских праздников. Необычный цвет и пушистый образ точно запомнятся всем гостям.",
   },
+  {
+    title: "Медвежонок",
+    image: "/catalog/dolls/classic-bear.png",
+    price: "от 2 000 ₽",
+    features: ["Рост: 2,60 м", "Музыкальное сопровождение", "Весёлые танцы"],
+    description:
+      "Классический медвежонок с добрым взглядом — универсальный герой для любого праздника, от дня рождения до семейного торжества.",
+  },
 ];
 
-const clientGallerySlots = Array.from({ length: 8 }, (_, index) => index + 1);
+const clientGalleryPhotos = [
+  "/clients/05.jpg",
+  "/clients/10.jpg",
+  "/clients/01.jpg",
+  "/clients/08.jpg",
+  "/clients/09.jpg",
+  "/clients/02.jpg",
+  "/clients/07.jpg",
+  "/clients/04.jpg",
+  "/clients/11.jpg",
+  "/clients/03.jpg",
+  "/clients/06.jpg",
+];
 
 export default function Home() {
   return (
@@ -295,7 +310,15 @@ export default function Home() {
 
           <div className="program-grid">
             {programs.map((program) => (
-              <article className={`program-card ${program.color}`} key={program.title}>
+              <article
+                className={`program-card ${program.color}`}
+                key={program.title}
+                style={
+                  {
+                    "--program-image": `url("${program.image}")`,
+                  } as React.CSSProperties
+                }
+              >
                 <div className="program-topline">
                   <span>{program.tag}</span>
                   <Gift size={25} />
@@ -378,25 +401,27 @@ export default function Home() {
         <div className="container">
           <div className="section-heading clients-heading">
             <div>
-              <span className="section-kicker">Фото появятся здесь</span>
+              <span className="section-kicker">Живые эмоции с праздников</span>
               <h2>Наши счастливые клиенты</h2>
             </div>
             <p>
-              Подготовили горизонтальную галерею для живых фото с праздников.
-              Когда появятся снимки, их можно будет быстро заменить в этих
-              карточках.
+              Реальные моменты с экспресс-поздравлений: смех, танцы, объятия и
+              радость, которую мы привозим в гости.
             </p>
           </div>
 
           <div className="clients-scroll" aria-label="Галерея счастливых клиентов">
-            {clientGallerySlots.map((slot) => (
-              <article className="client-photo-card" key={slot}>
-                <div className="client-photo-placeholder">
-                  <Users size={30} />
-                  <span>Фото {String(slot).padStart(2, "0")}</span>
+            {clientGalleryPhotos.map((photo, index) => (
+              <article className="client-photo-card" key={photo}>
+                <div className="client-photo-image">
+                  <Image
+                    src={photo}
+                    alt={`Счастливый праздник ${index + 1}`}
+                    fill
+                    sizes="360px"
+                  />
                 </div>
                 <strong>Счастливый праздник</strong>
-                <small>Место для фотографии клиента</small>
               </article>
             ))}
           </div>
@@ -430,7 +455,7 @@ export default function Home() {
         <div className="container about-grid">
           <div className="about-image">
             <Image
-              src="/hero.jpg"
+              src="/team.jpg"
               alt="Команда аниматоров Миссия-радость"
               fill
               sizes="(max-width: 800px) 100vw, 46vw"
