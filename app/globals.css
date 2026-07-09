@@ -161,6 +161,16 @@ img {
   transform: scaleX(1);
 }
 
+.header-phone {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  color: var(--violet);
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
 .button {
   min-height: 54px;
   display: inline-flex;
@@ -1309,20 +1319,27 @@ img {
 
   .header-inner {
     height: 72px;
+    gap: 10px;
+  }
+
+  .header-phone {
+    display: inline-flex;
+    margin-left: auto;
+    gap: 8px;
+    font-size: 15px;
+  }
+
+  .logo-image {
+    width: 108px;
+    max-height: 60px;
   }
 
   .button-small {
-    min-width: 43px;
-    width: 43px;
-    overflow: hidden;
-    padding: 0;
-    color: transparent;
-  }
-
-  .button-small::after {
-    content: "→";
-    color: #fff;
-    font-size: 19px;
+    min-width: auto;
+    width: auto;
+    padding: 0 14px;
+    font-size: 13px;
+    white-space: nowrap;
   }
 
   .hero {

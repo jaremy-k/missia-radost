@@ -206,6 +206,11 @@ export default function Home() {
             <a href="#contacts">Контакты</a>
           </nav>
 
+          <a className="header-phone" href="tel:+79332040510">
+            <Phone size={18} />
+            +7 933 204-05-10
+          </a>
+
           <a className="button button-small" href="#contacts">
             Заказать праздник
           </a>
